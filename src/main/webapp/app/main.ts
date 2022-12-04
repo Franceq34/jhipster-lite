@@ -16,6 +16,8 @@ import { WindowApplicationListener } from './common/primary/applicationlistener/
 import { Timeout } from '@/common/primary/timeout/Timeout';
 import { BodyCursorUpdater } from '@/common/primary/cursor/BodyCursorUpdater';
 import { LandscapeScroller } from '@/module/primary/landscape/LandscapeScroller';
+import { LocalStorageTheme } from '@/common/secondary/LocalStorageTheme';
+import { BodyThemeApplier } from '@/common/primary/theme/BodyThemeApplier';
 
 const app = createApp(App);
 
@@ -30,6 +32,8 @@ const modulesRepository = new RestModulesRepository(axiosHttp);
 const projectFoldersRepository = new RestProjectFoldersRepository(axiosHttp);
 const statisticsRepository = new RestStatisticsRepository(axiosHttp);
 const applicationListener = new WindowApplicationListener(window);
+const storageTheme = new LocalStorageTheme(window.localStorage);
+const themeApplier = new BodyThemeApplier(window);
 const timeout = () => new Timeout();
 
 app.provide('alertBus', alertBus);
@@ -43,6 +47,8 @@ app.provide('statistics', statisticsRepository);
 app.provide('projectFolders', projectFoldersRepository);
 app.provide('applicationListener', applicationListener);
 app.provide('timeout', timeout);
+app.provide('storageTheme', storageTheme);
+app.provide('themeApplier', themeApplier);
 app.use(router);
 
 app.mount('#app');

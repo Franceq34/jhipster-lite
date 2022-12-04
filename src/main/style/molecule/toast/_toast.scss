@@ -4,9 +4,9 @@ $jhlite-toast-radius: 2vw;
 $jhlite-toast-medium-gap: 10px;
 $jhlite-toast-medium-padding: 10px 20px;
 $jhlite-toast-medium-radius: 20px;
-$jhlite-toast-color-text: $jhlite-global-color-text-light;
-$jhlite-toast-success-color-background: $jhlite-global-color-success;
-$jhlite-toast-error-color-background: $jhlite-global-color-error;
+$jhlite-toast-color-text: var(--jhlite-global-color-text-light);
+$jhlite-toast-success-color-background: var(--jhlite-global-color-success);
+$jhlite-toast-error-color-background: var(--jhlite-global-color-error);
 
 .jhlite-toast {
   display: flex;

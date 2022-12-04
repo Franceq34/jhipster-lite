@@ -20,6 +20,13 @@
               </span>
             </div>
           </li>
+          <li class="jhlite-nav--item" @click="switchTheme">
+            <div class="jhlite-nav-item">
+              <span class="jhlite-icon-text">
+                <span class="jhlite-icon-text--text">Switch Theme</span>
+              </span>
+            </div>
+          </li>
           <li class="jhlite-nav--item">
             <router-link class="jhlite-nav-item" to="/landscape">
               <span class="jhlite-icon-text">

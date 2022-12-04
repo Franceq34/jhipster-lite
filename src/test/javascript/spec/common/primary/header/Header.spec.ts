@@ -5,6 +5,11 @@ import { flushPromises, shallowMount, VueWrapper } from '@vue/test-utils';
 import sinon, { SinonStub } from 'sinon';
 import { wrappedElement } from '../../../WrappedElement';
 import { describe, it, expect } from 'vitest';
+import { StorageTheme } from '@/common/domain/StorageTheme';
+import { Optional } from '@/common/domain/Optional';
+
+let wrapper: VueWrapper;
+let component: any;
 
 export interface StatisticsRepositoryStub extends StatisticsRepository {
   get: SinonStub;
@@ -12,38 +17,76 @@ export interface StatisticsRepositoryStub extends StatisticsRepository {
 
 export const stubStatisticsRepository = (): StatisticsRepositoryStub => ({ get: sinon.stub() } as StatisticsRepositoryStub);
 
-interface WrapperOptions {
-  statistics: StatisticsRepository;
+export interface StorageThemeStub extends StorageTheme {
+  get: SinonStub;
+  set: SinonStub;
 }
 
-const wrap = (options?: Partial<WrapperOptions>): VueWrapper => {
-  const { statistics }: WrapperOptions = {
+export const stubStorageTheme = (): StorageThemeStub => ({
+  get: sinon.stub(),
+  set: sinon.stub(),
+});
+
+interface WrapperOptions {
+  statistics: StatisticsRepository;
+  storageTheme: StorageThemeStub;
+}
+
+const wrap = (options?: Partial<WrapperOptions>): void => {
+  const { statistics, storageTheme }: WrapperOptions = {
     statistics: repositoryWithStatistics(),
+    storageTheme: stubStorageTheme(),
     ...options,
   };
 
-  return shallowMount(HeaderVue, {
+  wrapper = shallowMount(HeaderVue, {
     global: {
       stubs: ['router-link'],
       provide: {
         statistics,
+        storageTheme,
       },
     },
   });
+  component = wrapper.vm;
 };
 
 describe('Header', () => {
   it('should exist', () => {
-    const wrapper = wrap();
+    wrap();
 
     expect(wrapper.exists()).toBe(true);
   });
 
   it('should load statistics', async () => {
-    const wrapper = wrap();
+    wrap();
     await flushPromises();
 
     expect(wrapper.find(wrappedElement('statistics')).exists()).toBe(true);
+  });
+
+  it('should set dark theme', async () => {
+    const storageTheme = stubStorageTheme();
+    storageTheme.get.returns(Optional.empty());
+    wrap({ storageTheme });
+    await flushPromises();
+
+    component.switchTheme();
+
+    const { args } = storageTheme.set.getCall(0);
+    expect(args).toEqual(['dark']);
+  });
+
+  it('should set default theme', async () => {
+    const storageTheme = stubStorageTheme();
+    storageTheme.get.returns(Optional.of('dark'));
+    wrap({ storageTheme });
+    await flushPromises();
+
+    component.switchTheme();
+
+    const { args } = storageTheme.set.getCall(0);
+    expect(args).toEqual(['default']);
   });
 });
 

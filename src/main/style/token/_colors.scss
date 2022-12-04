@@ -35,3 +35,33 @@ $jhlite-valid-highlight-start-color: #3ebf5a;
 $jhlite-valid-highlight-end-color: $jhlite-global-color-success;
 $jhlite-invalid-highlight-start-color: #bf3e3e;
 $jhlite-invalid-highlight-end-color: $jhlite-global-color-error;
+
+:root {
+  --jhlite-global-color-primary: #{$jhlite-global-color-primary};
+  --jhlite-global-color-light: #{$jhlite-global-color-light};
+  --jhlite-global-color-fill-primary: #{$jhlite-global-color-fill-primary};
+  --jhlite-global-color-fill-primary-dark: #{$jhlite-global-color-fill-primary-dark};
+  --jhlite-global-color-fill-primary-darker: #{$jhlite-global-color-fill-primary-darker};
+  --jhlite-global-color-fill-light: #{$jhlite-global-color-fill-light};
+  --jhlite-global-color-text-primary: #{$jhlite-global-color-text-primary};
+  --jhlite-global-color-text-dark: #{$jhlite-global-color-text-dark};
+  --jhlite-global-color-fill-disabled-dark: #{$jhlite-global-color-fill-disabled-dark};
+  --jhlite-global-color-fill-disabled-light: #{$jhlite-global-color-fill-disabled-light};
+  --jhlite-global-color-text-disabled: #{$jhlite-global-color-text-disabled};
+  --jhlite-global-color-fill-secondary: #{$jhlite-global-color-fill-secondary};
+  --jhlite-global-color-text-light: #{$jhlite-global-color-text-light};
+  --jhlite-global-color-link-light: #{$jhlite-global-color-link-light};
+  --jhlite-global-color-link-light-hover: #{$jhlite-global-color-link-light-hover};
+  --jhlite-global-color-success: #{$jhlite-global-color-success};
+  --jhlite-global-color-error: #{$jhlite-global-color-error};
+  --jhlite-valid-highlight-animation: #{$jhlite-valid-highlight-animation};
+  --jhlite-invalid-highlight-animation: #{$jhlite-invalid-highlight-animation};
+  --jhlite-valid-highlight-start-color: #{$jhlite-valid-highlight-start-color};
+  --jhlite-valid-highlight-end-color: #{$jhlite-valid-highlight-end-color};
+  --jhlite-invalid-highlight-start-color: #{$jhlite-invalid-highlight-start-color};
+  --jhlite-invalid-highlight-end-color: #{$jhlite-invalid-highlight-end-color};
+}
+
+body.-theme-dark {
+  --jhlite-global-color-primary: red;
+}

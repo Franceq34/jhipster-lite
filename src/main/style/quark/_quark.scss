@@ -1,14 +1,14 @@
 @mixin jhlite-q-link-light {
-  color: $jhlite-global-color-link-light;
+  color: var(--jhlite-global-color-link-light);
 
   &:hover {
-    color: $jhlite-global-color-link-light-hover;
+    color: var(--jhlite-global-color-link-light-hover);
   }
 }
 
 @mixin jhlite-q-field {
   box-sizing: border-box;
-  border: $jhlite-global-size-field-border solid $jhlite-global-color-fill-primary-darker;
+  border: $jhlite-global-size-field-border solid var(--jhlite-global-color-fill-primary) -darker;
   border-radius: $jhlite-global-size-field-radius;
   padding: $jhlite-global-size-field-padding;
   line-height: $jhlite-global-size-field-line-height;
@@ -16,6 +16,6 @@
 
   &:disabled {
     cursor: not-allowed;
-    color: $jhlite-global-color-text-disabled;
+    color: var(--jhlite-global-color-text-disabled);
   }
 }

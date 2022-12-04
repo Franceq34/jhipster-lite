@@ -1,5 +1,5 @@
 $jhlite-menu-content-template-menu-medium-width: 300px;
-$jhlite-menu-content-template-color-divider: $jhlite-global-color-fill-secondary;
+$jhlite-menu-content-template-color-divider: var(--jhlite-global-color-fill-secondary);
 
 .jhlite-menu-content-template {
   box-sizing: border-box;

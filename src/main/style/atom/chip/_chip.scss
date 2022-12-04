@@ -1,13 +1,15 @@
+$jhlite-chip-color: var(--jhlite-global-color-fill-primary-dark) !default;
+
 .jhlite-chip {
   display: flex;
   flex-direction: column;
   gap: 5px;
   margin-bottom: 5px;
-  border: 1px solid $jhlite-global-color-fill-primary-dark;
+  border: 1px solid $jhlite-chip-color;
   border-radius: 6px;
-  background: rgba($color: $jhlite-global-color-fill-light, $alpha: 70%);
+  background: rgba($color: var(--jhlite-global-color-fill-light), $alpha: 70%);
   text-align: center;
-  color: $jhlite-global-color-text-dark;
+  color: var(--jhlite-global-color-text-dark);
 
   &--title {
     padding-top: 6px;
@@ -17,14 +19,14 @@
     &.-applied::before {
       float: left;
       margin: 2px 0 0 3px;
-      color: $jhlite-global-color-success;
+      color: var(--jhlite-global-color-success);
       font-family: $jhlite-global-font-family;
       content: '\e807';
     }
   }
 
   &--description {
-    border-top: 1px dotted $jhlite-global-color-fill-primary-dark;
+    border-top: 1px dotted $jhlite-chip-color;
     padding-top: 6px;
     padding-bottom: 6px;
     font-size: 0.8em;
@@ -36,20 +38,20 @@
 
   &.-selectable-highlighted {
     cursor: pointer;
-    animation: $jhlite-valid-highlight-animation;
+    animation: var(--jhlite-valid-highlight-animation);
   }
 
   &.-not-selectable-highlighted {
     border-style: dotted;
-    background-color: $jhlite-global-color-fill-disabled-light;
+    background-color: var(--jhlite-global-color-fill-disabled-light);
     cursor: not-allowed;
-    animation: $jhlite-invalid-highlight-animation;
+    animation: var(--jhlite-invalid-highlight-animation);
   }
 
   &.-selected {
-    background-color: $jhlite-global-color-fill-primary-darker;
+    background-color: $jhlite-chip-color;
     cursor: pointer;
-    color: $jhlite-global-color-text-light;
+    color: var(--jhlite-global-color-text-light);
   }
 
   &.-extended {

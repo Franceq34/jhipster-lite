@@ -1,8 +1,8 @@
-$jhlite-button-color-background: $jhlite-global-color-fill-primary-dark;
-$jhlite-button-color-text: $jhlite-global-color-text-light;
-$jhlite-button-hover-color-background: $jhlite-global-color-fill-primary-darker;
-$jhlite-button-focus-color-outline: $jhlite-global-color-fill-primary-darker;
-$jhlite-button-disabled-color-background: $jhlite-global-color-fill-disabled-dark;
+$jhlite-button-color-background: var(--jhlite-global-color-primary);
+$jhlite-button-color-text: var(--jhlite-global-color-text-light);
+$jhlite-button-hover-color-background: var(--jhlite-global-color-fill-primary-darker);
+$jhlite-button-focus-color-outline: var(--jhlite-global-color-fill-primary-darker);
+$jhlite-button-disabled-color-background: var(--jhlite-global-color-fill-disabled-dark);
 
 .jhlite-button {
   @include jhlite-q-field;

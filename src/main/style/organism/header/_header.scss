@@ -1,4 +1,4 @@
-$jhlite-header-color-background: $jhlite-global-color-fill-secondary;
+$jhlite-header-color-background: var(--jhlite-global-color-fill-secondary);
 
 .jhlite-header {
   display: flex;
